@@ -64,3 +64,10 @@ class Bullet(GameSprite):
         self.rect.x += self.speed # летить праворуч
         if self.rect.x > win_width:
             self.kill()
+
+
+#налаштування сцени
+win_width, win_height = 700, 500
+window = display.set_mode((win_width, win_height))
+display.set_caption("Maze online")
+background = transform.scale(image.load("black and oranje fon.jpg"), (win_width, win_height))
