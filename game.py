@@ -88,3 +88,14 @@ while game:
             if e.key == K_SPACE and not finish:
                 fire_sound.play()
                 player.fire()
+
+
+
+
+        # Відображення
+        player.reset()
+        monsters.draw(window)
+        bullets.draw(window)
+        final.reset()
+        for w in walls:
+            w.draw_wall()
