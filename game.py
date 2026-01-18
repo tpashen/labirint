@@ -71,3 +71,7 @@ win_width, win_height = 700, 500
 window = display.set_mode((win_width, win_height))
 display.set_caption("Maze online")
 background = transform.scale(image.load("black and oranje fon.jpg"), (win_width, win_height))
+
+# спрайти
+player = Player('hero.png',5, win_height - 80, 4 ,65,65)
+final = GameSprite('treasure.png', win_width - 100, win_height - 100,0,65,65)
