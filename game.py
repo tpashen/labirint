@@ -79,3 +79,12 @@ final = GameSprite('treasure.png', win_width - 100, win_height - 100,0,65,65)
 game = True
 finish = False
 clock = time.Clock()
+
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+        elif e.type == KEYDOWN:
+            if e.key == K_SPACE and not finish:
+                fire_sound.play()
+                player.fire()
