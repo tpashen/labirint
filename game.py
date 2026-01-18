@@ -75,3 +75,7 @@ background = transform.scale(image.load("black and oranje fon.jpg"), (win_width,
 # спрайти
 player = Player('hero.png',5, win_height - 80, 4 ,65,65)
 final = GameSprite('treasure.png', win_width - 100, win_height - 100,0,65,65)
+
+game = True
+finish = False
+clock = time.Clock()
