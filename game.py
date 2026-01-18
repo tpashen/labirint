@@ -71,3 +71,14 @@ win_width, win_height = 700, 500
 window = display.set_mode((win_width, win_height))
 display.set_caption("Maze online")
 background = transform.scale(image.load("black and oranje fon.jpg"), (win_width, win_height))
+
+# перемога 
+if sprite.collide_rect(player, final):
+    if len(monsters) == 0:
+        finish = True
+        window.blit(win_label, (200,300))
+        money_sound.play
+    else:
+        #підсказка
+        hint = font.Font(None, 25).render('Знищте всіх ворогів спочатку!', True, (255,255,255))
+        window.blit(hint, (player.rect.x, player.rect.y -20))
