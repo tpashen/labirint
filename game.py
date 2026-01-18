@@ -98,4 +98,10 @@ while game:
         bullets.draw(window)
         final.reset()
         for w in walls:
-            w.draw_wall()
+            w.draw_wall() 
+
+
+
+
+    display.update()
+    clock.tick(60)
