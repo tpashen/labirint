@@ -98,6 +98,12 @@ game = True
 finish = False
 clock = time.Clock()
 
+# Створення Стін
+walls.add(Wall(154, 205, 50, 400, 10, 100, 10))
+walls.add(Wall(154, 205, 50, 100, 480, 350, 10))
+walls.add(Wall(154, 205, 50, 100, 20, 10, 370))
+walls.add(Wall(154, 205, 50, 300, 120, 10, 300))
+
 while game:
     for e in event.get():
         if e.type == QUIT:
