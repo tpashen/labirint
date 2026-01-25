@@ -82,6 +82,18 @@ monsters.add(Enemy('monss.jpg', win_width - 200,150,3,65,65))
 
 bullets= sprite.Group()
 walls = sprite.Group()
+
+# Шрифти та звуки
+font.init()
+font_main = font.Font(None, 70)
+win_label = font_main.render('YOU WIN!', True, (255, 215, 0))
+lose_label = font_main.render('YOU LOSE!', True, (180, 0, 0))
+
+mixer.init()
+money_sound = mixer.Sound('money.ogg')
+kick_sound = mixer.Sound('kick.ogg')
+fire_sound = mixer.Sound('fire.ogg')
+
 game = True
 finish = False
 clock = time.Clock()
