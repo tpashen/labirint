@@ -26,6 +26,12 @@ class Player(GameSprite):
         if keys[K_DOWN] and self.rect.y < win_height - 70:
             self.rect.y += self.speed
 
+        #Зіткненя з монстром (гравця)
+        if sprite.spritecollide(player, monsters, False):
+            finish = True
+            window.blit(lose_label, (200, 200))
+            kick_sound.play
+        
     def fire(self):
         # Куля вилітає з центру гравця і летить праворуч
         bullet = Bullet("bullet.png", self.rect.right, self.rect.centery, 10, 20, 10)
@@ -75,10 +81,34 @@ background = transform.scale(image.load("black and oranje fon.jpg"), (win_width,
 # спрайти
 player = Player('hero.png',5, win_height - 80, 4 ,65,65)
 final = GameSprite('treasure.png', win_width - 100, win_height - 100,0,65,65)
+#Групи спрайтів
+monsters = sprite.Group()
+monsters.add(Enemy('monss.jpg', win_width - 80, 280, 2, 65, 65))
+monsters.add(Enemy('monss.jpg', win_width - 200,150,3,65,65))
+
+bullets= sprite.Group()
+walls = sprite.Group()
+
+# Шрифти та звуки
+font.init()
+font_main = font.Font(None, 70)
+win_label = font_main.render('YOU WIN!', True, (255, 215, 0))
+lose_label = font_main.render('YOU LOSE!', True, (180, 0, 0))
+
+mixer.init()
+money_sound = mixer.Sound('money.ogg')
+kick_sound = mixer.Sound('kick.ogg')
+fire_sound = mixer.Sound('fire.ogg')
 
 game = True
 finish = False
 clock = time.Clock()
+
+# Створення Стін
+walls.add(Wall(154, 205, 50, 400, 10, 100, 10))
+walls.add(Wall(154, 205, 50, 100, 480, 350, 10))
+walls.add(Wall(154, 205, 50, 100, 20, 10, 370))
+walls.add(Wall(154, 205, 50, 300, 120, 10, 300))
 
 while game:
     for e in event.get():
@@ -100,7 +130,16 @@ while game:
         for w in walls:
             w.draw_wall() 
 
+ 
 
+        
+        sprite.groupcollide(bullets,walls, True, False)
+        sprite.groupcollide(bullets,monsters,True,False)
+        
+        # зіткення зі стінами
+        if sprite.spritecollide(player,walls, False):
+            kick_sound.play()
+            player.rect.x, player.rect.y = 5, win_height = 50
 
 
     display.update()
