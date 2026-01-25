@@ -25,12 +25,6 @@ class Player(GameSprite):
             self.rect.y -= self.speed
         if keys[K_DOWN] and self.rect.y < win_height - 70:
             self.rect.y += self.speed
-
-        #Зіткненя з монстром (гравця)
-        if sprite.spritecollide(player, monsters, False):
-            finish = True
-            window.blit(lose_label, (200, 200))
-            kick_sound.play
         
     def fire(self):
         # Куля вилітає з центру гравця і летить праворуч
