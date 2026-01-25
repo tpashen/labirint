@@ -139,7 +139,7 @@ while game:
         # зіткення зі стінами
         if sprite.spritecollide(player,walls, False):
             kick_sound.play()
-            player.rect.x, player.rect.y = 5, win_height = 50
+            player.rect.x, player.rect.y = 5, win_height - 50
 
 
     display.update()
