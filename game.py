@@ -144,3 +144,15 @@ while game:
 
     display.update()
     clock.tick(60)
+
+# Перемога: гравець дійшов до скарбу
+if sprite.collide_rect(player, final):
+    if len(monsters) == 0:
+        finish = True
+        window.blit(win_label, (200, 200))
+        money_sound.play()
+    else:
+        # Підказка, якщо монстри ще живі
+        hint_text = "Знищте всіх ворогів спочатку!"
+        hint = font.Font(None, 25).render(hint_text, True, (255, 255, 255))
+        window.blit(hint, (player.rect.x, player.rect.y - 20))
