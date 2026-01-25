@@ -107,7 +107,8 @@ while game:
             w.draw_wall() 
 
 
-
+     sprite.groupcollide(bullets, walls, True, False)
+     sprite.groupcollide(bullets, monsters, True, True)
 
     display.update()
     clock.tick(60)
