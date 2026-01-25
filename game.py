@@ -72,17 +72,6 @@ window = display.set_mode((win_width, win_height))
 display.set_caption("Maze online")
 background = transform.scale(image.load("black and oranje fon.jpg"), (win_width, win_height))
 
-# перемога 
-if sprite.collide_rect(player, final):
-    if len(monsters) == 0:
-        finish = True
-        window.blit(win_label, (200,300))
-        money_sound.play
-    else:
-        #підсказка
-        hint = font.Font(None, 25).render('Знищте всіх ворогів спочатку!', True, (255,255,255))
-        window.blit(hint, (player.rect.x, player.rect.y -20))
-
 # спрайти
 player = Player('hero.png',5, win_height - 80, 4 ,65,65)
 final = GameSprite('treasure.png', win_width - 100, win_height - 100,0,65,65)
@@ -109,7 +98,10 @@ while game:
         bullets.draw(window)
         final.reset()
         for w in walls:
-            w.draw_wall()
+            w.draw_wall() 
+
+
+
 
     display.update()
     clock.tick(60)
