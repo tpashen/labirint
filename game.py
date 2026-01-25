@@ -106,9 +106,17 @@ while game:
         for w in walls:
             w.draw_wall() 
 
+ 
 
-     sprite.groupcollide(bullets, walls, True, False)
-     sprite.groupcollide(bullets, monsters, True, True)
+        
+        sprite.groupcollide(bullets,walls, True, False)
+        sprite.groupcollide(bullets,monsters,True,False)
+        
+        # зіткення зі стінами
+        if sprite.spritecollide(player,walls, False):
+            kick_sound.play()
+            player.rect.x, player.rect.y = 5, win_height = 50
+
 
     display.update()
     clock.tick(60)
