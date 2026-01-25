@@ -75,7 +75,13 @@ background = transform.scale(image.load("black and oranje fon.jpg"), (win_width,
 # спрайти
 player = Player('hero.png',5, win_height - 80, 4 ,65,65)
 final = GameSprite('treasure.png', win_width - 100, win_height - 100,0,65,65)
+#Групи спрайтів
+monsters = sprite.Group()
+monsters.add(Enemy('monss.jpg', win_width - 80, 280, 2, 65, 65))
+monsters.add(Enemy('monss.jpg', win_width - 200,150,3,65,65))
 
+bullets= sprite.Group()
+walls = sprite.Group()
 game = True
 finish = False
 clock = time.Clock()
