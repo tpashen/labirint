@@ -119,8 +119,8 @@ while game:
                 fire_sound.play()
                 player.fire()
 
-
-
+    if not finish:
+        window.blit(background, (0, 0))
 
         # Відображення
         player.reset()
