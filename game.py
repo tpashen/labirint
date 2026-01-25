@@ -135,6 +135,12 @@ while game:
             kick_sound.play()
             player.rect.x, player.rect.y = 5, win_height - 50
 
+        #Зіткненя з монстром (гравця)
+        if sprite.spritecollide(player, monsters, False):
+            finish = True
+            window.blit(lose_label, (200, 200))
+            kick_sound.play
+
 
     display.update()
     clock.tick(60)
